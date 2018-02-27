@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
 
   end
@@ -17,7 +18,12 @@ class UsersController < ApplicationController
     redirect_to root_url
   end
 
+  def all_users
+    @users = User.all
+  end
+
   def show
+    @user = User.find(params[:id])
   end
 
   private

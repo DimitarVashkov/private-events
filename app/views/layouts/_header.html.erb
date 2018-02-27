@@ -4,16 +4,17 @@
       <%= link_to 'Home', root_url %>
     </li>
 
-    <li class="nav-item ">
-      <%= link_to 'Users', users_path %>
-    </li>
-
-
-
     <% if logged_in? %>
       <li class="nav-item">
-        <%= link_to 'Current user: ' + current_user.name, '#' %>
+        <%= link_to 'All events', all_events_path %>
       </li>
+      <li class="nav-item">
+        <%= link_to 'All users', all_users_path %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Current user: ' + current_user.name, users_path %>
+      </li>
+
       <li class="nav-item">
         <%= link_to 'Logout', logout_path, method: :delete %>
       </li>

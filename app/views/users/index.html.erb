@@ -1,1 +1,10 @@
-<h1>The list of users</h1>
+<h1>Events of <%= current_user.name %></h1>
+
+<% if current_user.events.nil? %>
+  <h2>Currently no events!</h2>
+<% else %>
+  <% current_user.events.find_each do |f| %>
+    <h3><%=f.location%></h3>
+    <h4><%=f.date%></h4>
+  <% end %>
+<% end %>

@@ -1,2 +1,12 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+
+<h1>Events of <%= @user.name %></h1>
+
+<% if @user.events.nil? %>
+  <h2>Currently no events!</h2>
+<% else %>
+  <% @user.events.find_each do |f| %>
+    <h3><%=f.location%></h3>
+    <h4><%=f.date%></h4>
+  <% end %>
+<% end %>
