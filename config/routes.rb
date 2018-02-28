@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/events' => 'events#new'
   post '/events' => 'events#create'
 
+
   get '/all_events' => 'events#index'
   # add index and show routes
 
@@ -16,6 +17,6 @@ Rails.application.routes.draw do
   get '/signup'   => 'users#new'
   post '/signup'  => 'users#create'
   resources :users
-
+  resources :events, only:  [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

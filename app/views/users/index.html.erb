@@ -4,7 +4,7 @@
   <h2>Currently no events!</h2>
 <% else %>
   <% current_user.events.find_each do |f| %>
-    <h3><%=f.location%></h3>
+    <h3><%=link_to f.location, event_path(f.id)%></h3>
     <h4><%=f.date%></h4>
   <% end %>
 <% end %>
