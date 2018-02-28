@@ -1,5 +1,19 @@
 <h1>Event by <%= @event.creator.name%></h1>
-
+<%= @event.id %> vs <%= current_user.id %>
 <h3><%= @event.location %></h3>
 <h3><%= @event.date%></h3>
 
+
+
+<% if current_user != @event.creator %>
+    <% if current_user.attended_events.include?(@event) %>
+        <%= link_to "Cancel Attendance", current_user.invitations.find_by(event_id: @event.id), method: :delete, data:{confirm: "Are you sure?"}, class: 'btn btn-block btn-danger' %>
+    <% else %>
+
+
+    <%= form_for(current_user.invitations.build(event_id: @event.id)) do |f| %>
+      <%= f.hidden_field :event_id, value: @event.id %>
+      <%= f.submit "Attend"%>
+    <% end %>
+    <% end %>
+<% end %>
