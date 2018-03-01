@@ -1,6 +1,14 @@
-<h1>All events</h1>
+<h1>FUTURE EVENTS</h1>
+<% @events.future.each do |event| %>
 
-<% @events.each do |event| %>
+  <%= render event %>
+
+<% end %>
+
+
+<h1>PAST EVENTS</h1>
+
+<% @events.past.each do |event| %>
 
   <%= render event %>
 

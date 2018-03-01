@@ -1,9 +1,13 @@
 <h1>Event by <%= @event.creator.name%></h1>
-<%= @event.id %> vs <%= current_user.id %>
 <h3><%= @event.location %></h3>
 <h3><%= @event.date%></h3>
 
-
+<h4>People attending: (<%= @event.attendees.count %>)</h4>
+<ul>
+<% @event.attendees.each do |person| %>
+  <li><%= person.name %></li>
+  <% end %>
+</ul>
 
 <% if current_user != @event.creator %>
     <% if current_user.attended_events.include?(@event) %>
